@@ -1,0 +1,40 @@
+
+#nav{
+    background-color: #1b49e0;
+    color: white;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    width: auto;
+}
+
+.card-warning.card-outline {
+    border-top: 3px solid #ffc107;
+}
+
+
+.card {
+    box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%);
+    margin: 1rem; 
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+    flex-wrap:wrap;
+}
+.form{
+    width:auto;
+    display:flex;
+    align-items: center;
+    flex-wrap:wrap;
+    justify-content: right;
+}
+.btn{
+    margin-top:5%;
+
+}
