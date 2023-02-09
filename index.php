@@ -1,5 +1,9 @@
+
 <?php 
         include "connect.php";
+?>
+
+<?php
 ?>
 
 <!DOCTYPE html>
@@ -8,6 +12,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content=";URL='<?php echo $page?>'">
+
     <!-- Bootstrap Cdn -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
@@ -30,8 +36,8 @@
             <div class="col-md-12">
                 <div class="card card-outline card-warning">
                     <div class="card-header">
-                        <h3 class="card-title">Prospect</h3>
-                    </div>
+                        <h3 class="card-title">Prospect Status</h3>
+                    </div> 
 
                     <div class="card-body">
 
@@ -105,6 +111,12 @@
         </div>
 
     </section>
+    
+    <?php
+    function function_alert($message) { 
+    echo "<script>alert('$message');</script>";
+}
+?>
 
     <?php 
     if(isset($_POST['submit'])){
@@ -117,9 +129,12 @@
             $sql = "INSERT INTO `prospect`.`prospect` (`status`, `creator`,`date`) VALUES ('$prospect','$creator',current_timestamp())";            
             if($con->query($sql)==true){
             echo "Data Inserted Successfully.";}
+            $page = $_SERVER['PHP_SELF'];
+
         }
         else {
-             echo "Data Not Inserted to database. Check the status correctly\n";
+
+            function_alert(' DATA NOT INSERTED!!!\n Please enter the Prospect Status Correctly.\n It should be alpha-numeric only.');
             }
     }
     

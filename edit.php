@@ -45,11 +45,11 @@ include "connect.php";
 
             <div class="title">
                 <label for="ControlInput1" >Prospect Status</label>
-                <input type = "text"  name="title" class="form-control" id="ControlInput1" value="<?php echo $row["status"];?>">
+                <input type = "text"  name="status" class="form-control" id="ControlInput1" value="<?php echo $row["status"];?>">
             </div>
 
             <div class="description">
-                <input type="hidden" placeholder="<?php echo $row["creator"];?>"></textarea>
+                <input type="hidden" name = 'creator' placeholder="<?php echo $row["creator"];?>"></textarea>
             </div>
 
             <div class="date">
@@ -76,6 +76,7 @@ include "connect.php";
 
 </body>
 </html>
+
 <?php
 include "connect.php";
 
@@ -83,9 +84,11 @@ if (isset($_POST['cancel'])){
     echo"no data updated";
     header("location:index.php");
 }
+
 if(isset($_POST['updated'])){
-                $title = $_POST['status'];
-                $text = $_POST['creator'];
+                $status = $_POST['status'];
+
+                $creator = $_POST['creator'];
                 
                 $date = $_POST['date'];
 
@@ -96,8 +99,7 @@ if(isset($_POST['updated'])){
                 $re = mysqli_query($con,$query);
 
                 if($re){
-                    echo "The data is updated";
-                    header ("location:index.php");
+                    echo $query;
                 }
                 else {
                     echo "Nope, Its Not Updated!!".mysqli_error($con);  
